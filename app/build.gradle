@@ -68,4 +68,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$ver_lifecycle"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$ver_lifecycle"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$ver_lifecycle"
+
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:28.4.0')
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 }
