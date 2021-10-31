@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Blog</string>
     <string name="blog_setting">블로그 설정</string>
+    <string name="like_button">좋아요 버튼</string>
+    <string name="like_count">좋아요 갯수</string>
+    <string name="comment_count">댓글 갯수</string>
 </resources>
