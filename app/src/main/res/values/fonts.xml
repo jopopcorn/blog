@@ -21,6 +21,13 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
+    <style name="Bold18MidGray">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/mid_gray_50</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
     <style name="Bold18Gray">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18sp</item>
@@ -39,6 +46,20 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Regular18Black">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Bold16MidGray">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/mid_gray_50</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 
@@ -63,10 +84,17 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
+    <style name="Regular16MidGray">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/mid_gray_50</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
     <style name="Regular16Gray">
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/mid_gray</item>
+        <item name="android:textColor">@color/gray</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 
@@ -91,10 +119,17 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
+    <style name="Regular14MidGray">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/mid_gray_50</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
     <style name="Regular14LightGray">
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/light_gray</item>
+        <item name="android:textColor">@color/light_gray_40</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 
@@ -119,10 +154,17 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
+    <style name="Regular12MidGray">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/mid_gray_50</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
     <style name="Regular12LightGray">
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/light_gray</item>
+        <item name="android:textColor">@color/light_gray_40</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 
