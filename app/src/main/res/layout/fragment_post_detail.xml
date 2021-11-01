@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.blog.ui.post_detail.PostDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.post_detail.PostDetailFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/f_post_detail_nsv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/f_post_detail_iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="2dp"
+                    android:contentDescription="@string/back_button"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_arrow_back_36"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/f_post_detail_iv_profile_image"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@color/black"
+                    android:contentDescription="@string/profile_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/f_post_detail_tv_title"
+                    style="@style/Bold24Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="50dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/f_post_detail_iv_back"
+                    tools:text="게시글 제목" />
+
+                <TextView
+                    android:id="@+id/f_post_detail_tv_nickname"
+                    style="@style/Regular16MidGray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="@id/f_post_detail_tv_title"
+                    app:layout_constraintTop_toBottomOf="@id/f_post_detail_tv_title"
+                    tools:text="유저 닉네임" />
+
+                <TextView
+                    android:id="@+id/f_post_detail_tv_date"
+                    style="@style/Regular16MidGray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintStart_toEndOf="@id/f_post_detail_tv_nickname"
+                    app:layout_constraintTop_toTopOf="@id/f_post_detail_tv_nickname"
+                    tools:text="2021. 10. 31. 00:53" />
+
+                <View
+                    android:id="@+id/f_post_detail_v_header_boundary"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/f_post_detail_tv_nickname" />
+
+                <ImageView
+                    android:id="@+id/f_post_detail_iv_post_image"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginBottom="20dp"
+                    android:contentDescription="@string/post_image"
+                    android:maxHeight="300dp"
+                    app:layout_constraintBottom_toTopOf="@id/f_post_detail_et_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/f_post_detail_v_header_boundary" />
+
+                <TextView
+                    android:id="@+id/f_post_detail_et_content"
+                    style="@style/Regular14Black"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="30dp"
+                    android:textAlignment="textStart"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/f_post_detail_iv_post_image"
+                    tools:text="게시글내용이다아아아아아아아아아아아아아" />
+
+                <View
+                    android:id="@+id/f_post_detail_v_footer_boundary"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="60dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/f_post_detail_et_content" />
+
+                <ImageView
+                    android:id="@+id/f_post_detail_iv_footer_background"
+                    android:layout_width="0dp"
+                    android:layout_height="450dp"
+                    android:background="@color/light_gray_10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/f_post_detail_v_footer_boundary" />
+
+                <TextView
+                    android:id="@+id/f_post_detail_tv_blog_name"
+                    style="@style/Regular16Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/f_post_detail_iv_footer_background"
+                    tools:text="블로그 제목" />
+
+                <TextView
+                    android:id="@+id/f_post_detail_tv_blog_introduction"
+                    style="@style/Regular12Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="@id/f_post_detail_tv_blog_name"
+                    app:layout_constraintTop_toBottomOf="@id/f_post_detail_tv_blog_name"
+                    tools:text="블로그 소개글" />
+
+
+                <ImageView
+                    android:id="@+id/f_post_detail_iv_blog_background_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@color/black"
+                    android:contentDescription="@string/blog_background_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/f_post_detail_tv_blog_name" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <View
+            android:id="@+id/f_post_detail_v_bottom_menu"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/f_post_detail_v_bottom_menu_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/light_gray_40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/f_post_detail_v_bottom_menu" />
+
+        <ImageView
+            android:id="@+id/f_post_detail_iv_like"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/like_button"
+            android:src="@drawable/ic_like_border_24"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/f_post_detail_v_bottom_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/f_post_detail_v_bottom_menu"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/f_post_detail_tv_like_count"
+            style="@style/Regular14Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/f_post_detail_iv_like"
+            app:layout_constraintStart_toEndOf="@id/f_post_detail_iv_like"
+            app:layout_constraintTop_toTopOf="@id/f_post_detail_iv_like"
+            tools:text="0" />
+
+
+        <ImageView
+            android:id="@+id/f_post_detail_iv_comment"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/comment_button"
+            android:src="@drawable/ic_chat_bubble_outline_24"
+            android:visibility="visible"
+            app:layout_constraintStart_toEndOf="@id/f_post_detail_tv_like_count"
+            app:layout_constraintTop_toTopOf="@id/f_post_detail_iv_like"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/f_post_detail_tv_comment_count"
+            style="@style/Regular14Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/f_post_detail_iv_comment"
+            app:layout_constraintStart_toEndOf="@id/f_post_detail_iv_comment"
+            app:layout_constraintTop_toTopOf="@id/f_post_detail_iv_comment"
+            tools:text="0" />
+
+        <ImageView
+            android:id="@+id/f_post_detail_iv_edit"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/post_edit_button"
+            android:src="@drawable/ic_edit_note_24"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/f_post_detail_v_bottom_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/f_post_detail_v_bottom_menu"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/f_post_detail_iv_delete"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/post_delete_button"
+            android:src="@drawable/ic_delete_outline_24"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/f_post_detail_v_bottom_menu"
+            app:layout_constraintStart_toEndOf="@id/f_post_detail_iv_edit"
+            app:layout_constraintTop_toTopOf="@id/f_post_detail_v_bottom_menu"
+            app:tint="@color/red" />
+
+        <ImageView
+            android:id="@+id/f_post_detail_iv_more"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/more_button"
+            android:src="@drawable/ic_more_vert_24"
+            app:layout_constraintBottom_toBottomOf="@id/f_post_detail_v_bottom_menu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/f_post_detail_v_bottom_menu"
+            app:tint="@color/black" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
