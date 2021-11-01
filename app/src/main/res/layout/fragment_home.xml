@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="viewModel"
             type="com.example.blog.ui.home.HomeViewModel" />
@@ -52,8 +54,22 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="20dp"
             android:background="@color/white"
+            android:contentDescription="@string/profile_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/f_home_iv_write_post"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/background_black_border_line"
+            android:contentDescription="@string/write_post_button"
+            android:padding="4dp"
+            android:src="@drawable/ic_create_24"
+            app:layout_constraintBottom_toBottomOf="@id/f_home_tv_setting"
+            app:layout_constraintStart_toStartOf="@id/f_home_tv_title"
+            app:layout_constraintTop_toTopOf="@id/f_home_tv_setting"
+            app:tint="@color/gray" />
 
         <TextView
             android:id="@+id/f_home_tv_setting"
@@ -62,9 +78,9 @@
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
+            android:background="@drawable/background_gray_rounder"
             android:gravity="center"
             android:text="@string/blog_setting"
-            android:background="@drawable/background_gray_rounder"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/f_home_iv_background" />
 
@@ -72,20 +88,22 @@
             android:id="@+id/f_home_v_boundary"
             android:layout_width="0dp"
             android:layout_height="12dp"
+            android:layout_marginTop="40dp"
             android:background="@color/light_gray_10"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/f_home_tv_setting"
-            android:layout_marginTop="40dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_home_tv_setting" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/f_home_rcv_post_list"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/f_home_v_boundary"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            tools:listitem="@layout/item_home_post_list" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

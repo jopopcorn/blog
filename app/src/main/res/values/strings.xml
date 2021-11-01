@@ -4,4 +4,19 @@
     <string name="like_button">좋아요 버튼</string>
     <string name="like_count">좋아요 갯수</string>
     <string name="comment_count">댓글 갯수</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back_button">뒤로 가기 버튼</string>
+    <string name="profile_image">프로필 이미지</string>
+    <string name="post_image">게시글 이미지</string>
+    <string name="post_content_hint">내용을 입력해주세요.</string>
+    <string name="title">제목</string>
+    <string name="comment_button">댓글 버튼</string>
+    <string name="more_button">더보기 버튼</string>
+    <string name="blog_background_image">블로그 배경 이미지</string>
+    <string name="post_edit_button">글 수정 버튼</string>
+    <string name="post_delete_button">글 삭제 버튼</string>
+    <string name="finish">완료</string>
+    <string name="enter_content">내용을 입력해주세요.</string>
+    <string name="write_post_button">글 작성 버튼</string>
 </resources>
