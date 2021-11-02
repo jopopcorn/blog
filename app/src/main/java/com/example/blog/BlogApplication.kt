@@ -2,7 +2,9 @@ package com.example.blog
 
 import android.app.Application
 import com.example.blog.util.PreferencesUtil
+import com.example.blog.util.TimberDebugTree
 import com.google.firebase.FirebaseApp
+import timber.log.Timber
 
 class BlogApplication : Application(){
 
@@ -14,5 +16,8 @@ class BlogApplication : Application(){
         super.onCreate()
         prefs = PreferencesUtil(applicationContext)
         FirebaseApp.initializeApp(applicationContext)
+        if(BuildConfig.DEBUG){
+            Timber.plant(TimberDebugTree())
+        }
     }
 }
