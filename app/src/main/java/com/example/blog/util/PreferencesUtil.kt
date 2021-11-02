@@ -15,12 +15,20 @@ class PreferencesUtil(context: Context) {
         return prefs.getBoolean(key, defValue)
     }
 
+    fun getInt(key: String, defValue: Int): Int{
+        return prefs.getInt(key, defValue)
+    }
+
     fun setString(key: String, str: String){
         prefs.edit().putString(key, str).apply()
     }
 
     fun setBoolean(key: String, bool: Boolean){
         prefs.edit().putBoolean(key, bool).apply()
+    }
+
+    fun setInt(key: String, int: Int){
+        prefs.edit().putInt(key, int).apply()
     }
 
     fun removeValue(key: String){
