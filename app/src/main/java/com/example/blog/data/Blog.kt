@@ -23,7 +23,7 @@ data class Blog(
         id = id,
         name = "user${id}의 블로그",
         nickname = "user${id}",
-        introduction = "",
+        introduction = "user${id}의 블로그입니다.",
         url = "user${id}.blockblog.com",
         numberOfNeighbor = 0,
         backgroundImageUrl = ""
