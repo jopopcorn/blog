@@ -45,7 +45,7 @@ class WritePostViewModel : ViewModel() {
     }
 
     fun savePost(post: Post) {
-        postCollection.document()
+        postCollection.document("${post.id}")
             .set(post)
             .addOnSuccessListener {
                 _isCompleted.value = true
