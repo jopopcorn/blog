@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.blog.R
 import com.example.blog.databinding.FragmentPostDetailBinding
 
 class PostDetailFragment : Fragment() {
@@ -36,7 +35,11 @@ class PostDetailFragment : Fragment() {
         viewModel.loadPostData(args.postId)
 
         binding.fPostDetailIvBack.setOnClickListener {
-            findNavController().popBackStack()
+            findNavController().navigateUp()
+        }
+
+        binding.fPostDetailTvCommentCount.setOnClickListener {
+            findNavController().navigate(PostDetailFragmentDirections.actionPostDetailToComment(args.postId))
         }
     }
 }
