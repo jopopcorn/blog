@@ -39,6 +39,11 @@ class WritePostViewModel : ViewModel() {
                 // 새로운 게시글 아이디 배정을 위해 마지막 게시글 id의 +1 값으로 아이디 생성
                 _postId.value = post.id + 1
             }
+
+            if(lastPost == null){
+                // posts 컬렉션에 아무것도 없으므로 첫 번째 게시글이 됨
+                _postId.value = 1
+            }
         }.addOnFailureListener {
             Timber.d("마지막 게시글 아이디 불러오기 실패 - $it")
         }
