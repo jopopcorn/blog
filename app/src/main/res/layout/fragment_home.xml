@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:text="@{viewModel.blogInfo.name}"
             app:layout_constraintBottom_toBottomOf="@id/f_home_iv_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -43,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:text="@{viewModel.blogInfo.url}"
             app:layout_constraintStart_toStartOf="@id/f_home_tv_title"
             app:layout_constraintTop_toBottomOf="@id/f_home_tv_title"
             tools:text="user1.blokbloc.com" />
@@ -98,11 +100,13 @@
             android:id="@+id/f_home_rcv_post_list"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/f_home_v_boundary"
+            app:postList="@{viewModel.postList}"
             tools:listitem="@layout/item_home_post_list" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,11 @@
 package com.example.blog.data
 
 data class User(
-    val id : String,
-    var nickname : String,
-    var introduce : String,
-    var blog : Blog
-)
+    var id: Int,
+    var nickname: String,
+    var profileImageUrl: String
+) {
+    constructor(): this(id = 0, nickname = "", profileImageUrl = "")
+
+    constructor(id: Int) : this(id = id, "user$id", "")
+}

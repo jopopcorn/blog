@@ -1,12 +1,49 @@
 package com.example.blog.data
 
 data class Post(
-    val id: Int,
+    var id: Int,
+    var userId: Int,
     var title: String,
     var content: String,
     var image: ArrayList<String>,
     var numberOfLike: Int,
     var numberOfComment: Int,
-    val date: String,
-    var commentList: ArrayList<Comment>
-)
+    var date: String,
+    var comments: ArrayList<Comment>
+) {
+    constructor(): this(
+        id = 0,
+        userId = 0,
+        title = "",
+        content = "",
+        image = arrayListOf(),
+        0,
+        0,
+        date = "",
+        comments = arrayListOf()
+    )
+
+    constructor(id: Int, userId: Int): this(
+        id = id,
+        userId = userId,
+        title = "",
+        content = "",
+        image = arrayListOf(),
+        0,
+        0,
+        date = "",
+        comments = arrayListOf()
+    )
+
+    constructor(id: Int, userId: Int, title: String, content: String, date: String) : this(
+        id = id,
+        userId = userId,
+        title = title,
+        content = content,
+        image = arrayListOf(),
+        0,
+        0,
+        date = date,
+        comments = arrayListOf()
+    )
+}

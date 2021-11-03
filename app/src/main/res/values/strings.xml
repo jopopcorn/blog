@@ -19,4 +19,5 @@
     <string name="finish">완료</string>
     <string name="enter_content">내용을 입력해주세요.</string>
     <string name="write_post_button">글 작성 버튼</string>
+    <string name="number">%d</string>
 </resources>
