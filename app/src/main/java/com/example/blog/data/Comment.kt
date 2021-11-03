@@ -18,4 +18,14 @@ data class Comment(
         date = "",
         content = ""
     )
+
+    constructor(id: Int, postId: Int, userId: Int, nickname: String, date: String, content: String): this(
+        id = id,
+        postId = postId,
+        userId = userId,
+        nickname = nickname,
+        profileImageUrl = "",
+        date = date,
+        content = content
+    )
 }
