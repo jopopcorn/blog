@@ -10,11 +10,13 @@ class BlogApplication : Application(){
 
     companion object {
         lateinit var prefs: PreferencesUtil
+        var USER_ID: Int = 0
     }
 
     override fun onCreate() {
         super.onCreate()
         prefs = PreferencesUtil(applicationContext)
+        USER_ID = prefs.getInt("userId", 0)
         FirebaseApp.initializeApp(applicationContext)
         if(BuildConfig.DEBUG){
             Timber.plant(TimberDebugTree())
