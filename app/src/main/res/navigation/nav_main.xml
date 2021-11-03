@@ -20,13 +20,16 @@
             app:destination="@id/navigation_post_detail" />
     </fragment>
 
-
     <fragment
         android:id="@+id/navigation_write_post"
         android:name="com.example.blog.ui.write_post.WritePostFragment"
         android:label="WritePostFragment"
         tools:layout="@layout/fragment_write_post">
 
+        <action
+            android:id="@+id/action_write_post_to_post_detail"
+            app:destination="@id/navigation_post_detail"
+            app:popUpTo="@id/navigation_post_detail" />
         <argument
             android:name="postId"
             android:defaultValue="-1"
@@ -38,6 +41,21 @@
         android:name="com.example.blog.ui.post_detail.PostDetailFragment"
         android:label="PostDetailFragment"
         tools:layout="@layout/fragment_post_detail">
+
+        <action
+            android:id="@+id/action_post_detail_to_comment"
+            app:destination="@id/navigation_comment" />
+        <argument
+            android:name="postId"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_comment"
+        android:name="com.example.blog.ui.post_detail.comment.CommentFragment"
+        android:label="CommentFragment"
+        tools:layout="@layout/fragment_comment">
 
         <argument
             android:name="postId"
