@@ -13,13 +13,11 @@
 
         <action
             android:id="@+id/action_home_to_write_post"
-            app:destination="@id/navigation_write_post"
-            app:popUpTo="@id/navigation_write_post" />
+            app:destination="@id/navigation_write_post" />
 
         <action
             android:id="@+id/action_home_to_post_detail"
-            app:destination="@id/navigation_post_detail"
-            app:popUpTo="@id/navigation_post_detail" />
+            app:destination="@id/navigation_post_detail" />
     </fragment>
 
 
