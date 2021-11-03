@@ -5,14 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.example.blog.BlogApplication
+import com.example.blog.BlogApplication.Companion.USER_ID
 import com.example.blog.BlogApplication.Companion.prefs
 import com.example.blog.databinding.FragmentHomeBinding
-import com.google.firebase.FirebaseApp
 
 class HomeFragment : Fragment() {
     private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
@@ -37,8 +35,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun initUI(){
+        loadUserInfo()
+
         homeAdapter = HomeAdapter {
-//            findNavController().navigate(HomeFragmentDirections.actionHomeToPostDetail())
+            findNavController().navigate(HomeFragmentDirections.actionHomeToPostDetail(it.id))
         }
 
         binding.fHomeRcvPostList.apply {
@@ -48,13 +48,17 @@ class HomeFragment : Fragment() {
         }
 
         binding.fHomeIvWritePost.setOnClickListener {
-            if(viewModel.postList.value?.size == 0 || viewModel.postList.value == null){
-                findNavController().navigate(HomeFragmentDirections.actionHomeToWritePost(1))
-            }
+            findNavController().navigate(HomeFragmentDirections.actionHomeToWritePost(-1))
         }
+    }
 
-        viewModel.postList.observe(viewLifecycleOwner, {
-
-        })
+    private fun loadUserInfo(){
+        if(USER_ID == 0) {
+            USER_ID = viewModel.getUserId()
+            prefs.setInt("userId", USER_ID)
+        }else{
+            viewModel.loadBlogInfo(USER_ID)
+            viewModel.loadPostList(USER_ID)
+        }
     }
 }
