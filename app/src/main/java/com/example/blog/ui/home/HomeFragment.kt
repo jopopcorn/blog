@@ -25,7 +25,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding.apply {
             viewModel = this@HomeFragment.viewModel
             lifecycleOwner = this@HomeFragment
@@ -50,15 +49,26 @@ class HomeFragment : Fragment() {
         binding.fHomeIvWritePost.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeToWritePost(-1))
         }
+
+        viewModel.userId.observe(viewLifecycleOwner, {
+            USER_ID = it
+            prefs.setInt("userId", USER_ID)
+            viewModel.createNewUser(it)
+            viewModel.createUserBlog(it)
+        })
     }
 
     private fun loadUserInfo(){
         if(USER_ID == 0) {
-            USER_ID = viewModel.getUserId()
-            prefs.setInt("userId", USER_ID)
+            viewModel.createUserId()
         }else{
             viewModel.loadBlogInfo(USER_ID)
             viewModel.loadPostList(USER_ID)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.unbind()
     }
 }
