@@ -57,7 +57,6 @@
             android:layout_marginTop="20dp"
             android:maxLength="500"
             android:text="@{comment.content}"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/i_comment_iv_profile"
             app:layout_constraintTop_toBottomOf="@id/i_comment_iv_profile"
             tools:text="댓글 내용이 들어가는 자리 댓글 내용이 들어가는 자리 댓글 내용이 들어가는 자리 댓글 내용이 들어가는 자리 " />
