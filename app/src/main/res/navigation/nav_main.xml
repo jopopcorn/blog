@@ -12,6 +12,10 @@
         tools:layout="@layout/fragment_home">
 
         <action
+            android:id="@+id/action_home_to_setting"
+            app:destination="@id/navigation_setting" />
+
+        <action
             android:id="@+id/action_home_to_write_post"
             app:destination="@id/navigation_write_post" />
 
@@ -44,7 +48,7 @@
 
         <action
             android:id="@+id/action_post_detail_to_write_post"
-            app:destination="@id/navigation_write_post"/>
+            app:destination="@id/navigation_write_post" />
 
         <action
             android:id="@+id/action_post_detail_to_comment"
@@ -63,6 +67,18 @@
 
         <argument
             android:name="postId"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="com.example.blog.ui.setting.SettingFragment"
+        android:label="SettingFragment"
+        tools:layout="@layout/fragment_setting">
+
+        <argument
+            android:name="userId"
             android:defaultValue="-1"
             app:argType="integer" />
     </fragment>

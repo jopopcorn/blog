@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.blog.ui.setting.SettingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.setting.SettingFragment">
+
+        <ImageView
+            android:id="@+id/f_setting_iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:contentDescription="@string/back_button"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back_36"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+
+        <TextView
+            style="@style/Bold18Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            app:layout_constraintBottom_toBottomOf="@id/f_setting_iv_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/f_setting_tv_finish"
+            style="@style/Regular14Black"
+            android:layout_width="70dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/background_gray_rounder"
+            android:gravity="center"
+            android:text="@string/finish"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/f_setting_iv_back"/>
+
+        <View
+            android:id="@+id/f_setting_v_background"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:background="@color/purple"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_setting_iv_back" />
+
+        <ImageView
+            android:id="@+id/f_setting_iv_profile_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:contentDescription="@string/profile_image"
+            android:scaleType="fitCenter"
+            android:src="@drawable/user_profile_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/f_setting_v_background" />
+
+        <TextView
+            android:id="@+id/f_setting_tv_user_id"
+            style="@style/Bold18White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/number(viewModel.userInfo.id)}"
+            app:layout_constraintBottom_toBottomOf="@id/f_setting_v_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_setting_iv_profile_image"
+            tools:text="유저 아이디" />
+
+        <TextView
+            android:id="@+id/f_setting_tv_nickname"
+            style="@style/Regular14Gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/nickname"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_setting_v_background" />
+
+        <EditText
+            android:id="@+id/f_setting_et_nickname"
+            style="@style/Regular18Black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:hint="@string/enter_nickname"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="10"
+            android:paddingVertical="10dp"
+            android:text="@{viewModel.blogInfo.nickname}"
+            android:textColorHint="@color/mid_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_setting_tv_nickname"
+            tools:text="유저 닉네임" />
+
+        <View
+            android:id="@+id/f_setting_v_nickname_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_setting_et_nickname"
+            android:background="@color/light_gray_40"/>
+
+        <TextView
+            android:id="@+id/f_setting_tv_blog_name"
+            style="@style/Regular14Gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/blog_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_setting_v_nickname_line" />
+
+        <EditText
+            android:id="@+id/f_setting_et_blog_name"
+            style="@style/Regular18Black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:hint="@string/enter_blog_name"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="20"
+            android:paddingVertical="10dp"
+            android:text="@{viewModel.blogInfo.name}"
+            android:textColorHint="@color/mid_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_setting_tv_blog_name"
+            tools:text="유저의 블로그 이름" />
+
+        <View
+            android:id="@+id/f_setting_v_blog_name_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_setting_et_blog_name"
+            android:background="@color/light_gray_40"/>
+
+        <TextView
+            android:id="@+id/f_setting_tv_introduction"
+            style="@style/Regular14Gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/introduction"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_setting_v_blog_name_line" />
+
+        <EditText
+            android:id="@+id/f_setting_et_introduction"
+            style="@style/Regular18Black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:hint="@string/enter_introduction"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingVertical="10dp"
+            android:text="@{viewModel.blogInfo.introduction}"
+            android:textColorHint="@color/mid_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_setting_tv_introduction"
+            tools:text="유저의 블로그 소개글" />
+
+        <View
+            android:id="@+id/f_setting_v_introduction_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_setting_et_introduction"
+            android:background="@color/light_gray_40"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

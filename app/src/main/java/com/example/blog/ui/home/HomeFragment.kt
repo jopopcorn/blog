@@ -40,6 +40,10 @@ class HomeFragment : Fragment() {
             findNavController().navigate(HomeFragmentDirections.actionHomeToPostDetail(it.id))
         }
 
+        binding.fHomeTvSetting.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeToSetting(USER_ID))
+        }
+
         binding.fHomeRcvPostList.apply {
             adapter = homeAdapter
             setHasFixedSize(true)
