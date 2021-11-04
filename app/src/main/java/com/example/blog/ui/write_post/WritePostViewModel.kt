@@ -19,6 +19,10 @@ class WritePostViewModel : ViewModel() {
     val postId: LiveData<Int>
         get() = _postId
 
+    private val _postData = MutableLiveData<Post>()
+    val postData: LiveData<Post>
+        get() = _postData
+
     private val db = FirebaseFirestore.getInstance()
     private val postCollection = db.collection("posts")
 
@@ -40,7 +44,7 @@ class WritePostViewModel : ViewModel() {
                 _postId.value = post.id + 1
             }
 
-            if(lastPost == null){
+            if (lastPost == null) {
                 // posts 컬렉션에 아무것도 없으므로 첫 번째 게시글이 됨
                 _postId.value = 1
             }
@@ -65,5 +69,15 @@ class WritePostViewModel : ViewModel() {
         val now = System.currentTimeMillis()
         val date = Date(now)
         return dateFormat.format(date)
+    }
+
+    fun getPostInfo(postId: Int) {
+        db.collection("posts").document("$postId").get()
+            .addOnSuccessListener {
+                _postData.value = it.toObject(Post::class.java)
+                Timber.d("수정할 게시글 정보 불러오기 ${_postData.value}")
+            }.addOnFailureListener {
+                Timber.d("수정할 게시글 정보 불러오기 실패 $it")
+            }
     }
 }

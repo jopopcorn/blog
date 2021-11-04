@@ -18,6 +18,7 @@ class WritePostFragment : Fragment() {
     private val viewModel by viewModels<WritePostViewModel>()
     private val args: WritePostFragmentArgs by navArgs()
     private var postId = 0
+    private var editMode : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,15 +38,24 @@ class WritePostFragment : Fragment() {
     }
 
     private fun initUI() {
+        if(postId != -1){
+            editMode = true
+            viewModel.getPostInfo(postId)
+        }
+
         binding.fWritePostIvBack.setOnClickListener {
             findNavController().popBackStack()
         }
 
         binding.fPostDetailTvFinish.setOnClickListener {
-            if(postId == -1){
-                viewModel.getLastPostId()
-            }else{
-                viewModel.setPostId(postId)
+            if (binding.fWritePostEtTitle.text.toString().trim() == "" || binding.fWritePostEtContent.text.toString().trim() == "") {
+                Toast.makeText(requireActivity(), "빈칸, 공백 없이 글을 작성해주세요.", Toast.LENGTH_LONG).show()
+            } else {
+                if(postId == -1){
+                    viewModel.getLastPostId()
+                }else{
+                    viewModel.setPostId(postId)
+                }
             }
         }
 
@@ -57,15 +67,24 @@ class WritePostFragment : Fragment() {
         })
 
         viewModel.postId.observe(viewLifecycleOwner, {
-            viewModel.savePost(
-                Post(
-                    id = it,
-                    userId = USER_ID,
-                    title = binding.fWritePostEtTitle.text.toString(),
-                    content = binding.fWritePostEtContent.text.toString(),
-                    date = viewModel.getCurrentDate()
+            if(editMode){
+                val post : Post? = viewModel.postData.value
+                post?.let { item ->
+                    item.title = binding.fWritePostEtTitle.text.toString()
+                    item.content = binding.fWritePostEtContent.text.toString()
+                    viewModel.savePost(item)
+                }
+            }else{
+                viewModel.savePost(
+                    Post(
+                        id = it,
+                        userId = USER_ID,
+                        title = binding.fWritePostEtTitle.text.toString(),
+                        content = binding.fWritePostEtContent.text.toString(),
+                        date = viewModel.getCurrentDate()
+                    )
                 )
-            )
+            }
         })
     }
 

@@ -48,6 +48,7 @@ class CommentViewModel : ViewModel() {
 
         val getCommentsQuery =
             db.collection("comments").whereEqualTo("postId", postId)
+                .orderBy("id", Query.Direction.ASCENDING)
 
         getCommentsQuery.get().addOnSuccessListener { documentSnapshot ->
             documentSnapshot.documents.forEach { document ->

@@ -49,7 +49,7 @@ class CommentFragment : Fragment() {
         }
 
         binding.fCommentTvRegister.setOnClickListener {
-            if(binding.fCommentEtComment.text.trim() != ""){
+            if(binding.fCommentEtComment.text.toString().trim() != ""){
                 viewModel.getLastCommentId(args.postId)
             }
         }
