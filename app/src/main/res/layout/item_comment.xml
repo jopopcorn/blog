@@ -20,9 +20,10 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:contentDescription="@string/profile_image"
-            android:src="@color/black"
+            android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/user_profile_image" />
 
         <TextView
             android:id="@+id/i_comment_tv_nickname"

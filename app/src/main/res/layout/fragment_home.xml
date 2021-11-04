@@ -20,7 +20,7 @@
             android:id="@+id/f_home_iv_background"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:background="@color/gray"
+            android:background="@color/purple"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -55,8 +55,9 @@
             android:layout_height="36dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="20dp"
-            android:background="@color/white"
             android:contentDescription="@string/profile_image"
+            android:scaleType="fitCenter"
+            android:src="@drawable/user_profile_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
