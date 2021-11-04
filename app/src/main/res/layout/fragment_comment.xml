@@ -62,15 +62,16 @@
                 android:id="@+id/f_comment_et_comment"
                 style="@style/Regular16Black"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:background="@null"
                 android:hint="@string/enter_comment"
                 android:importantForAutofill="no"
-                android:inputType="text"
+                android:inputType="textMultiLine"
+                android:gravity="top"
                 android:maxLength="120"
-                android:maxLines="1"
-                android:padding="10dp"
+                android:maxHeight="60dp"
+                android:padding="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/f_comment_tv_register"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,14 +83,13 @@
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/background_gray_rounder"
                 android:gravity="center"
                 android:text="@string/registration"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/f_comment_et_comment"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                app:layout_constraintStart_toEndOf="@id/f_comment_et_comment" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
