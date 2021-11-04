@@ -62,9 +62,9 @@ class CommentViewModel : ViewModel() {
         }
     }
 
-    fun getLastCommentId(postId: Int) {
+    fun getLastCommentId() {
         val getLastCommentIdQuery =
-            db.collection("comments").whereEqualTo("postId", postId)
+            db.collection("comments")
                 .orderBy("id", Query.Direction.DESCENDING).limit(1)
 
         getLastCommentIdQuery.get().addOnSuccessListener {
