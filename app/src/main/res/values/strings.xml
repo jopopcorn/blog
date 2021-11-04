@@ -23,4 +23,5 @@
     <string name="registration">등록</string>
     <string name="enter_comment">댓글을 입력하세요.</string>
     <string name="all_post">전체글</string>
+    <string name="comment">댓글 %d</string>
 </resources>

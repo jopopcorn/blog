@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.blog.BlogApplication.Companion.USER_ID
@@ -40,6 +41,10 @@ class CommentFragment : Fragment() {
 
         commentAdapter = CommentAdapter {
 
+        }
+
+        binding.fCommentIvBack.setOnClickListener {
+            findNavController().navigateUp()
         }
 
         binding.fCommentRcvCommentList.apply {
