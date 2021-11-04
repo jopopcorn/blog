@@ -8,8 +8,7 @@ data class Post(
     var image: ArrayList<String>,
     var numberOfLike: Int,
     var numberOfComment: Int,
-    var date: String,
-    var comments: ArrayList<Comment>
+    var date: String
 ) {
     constructor(): this(
         id = 0,
@@ -19,8 +18,7 @@ data class Post(
         image = arrayListOf(),
         0,
         0,
-        date = "",
-        comments = arrayListOf()
+        date = ""
     )
 
     constructor(id: Int, userId: Int): this(
@@ -31,8 +29,7 @@ data class Post(
         image = arrayListOf(),
         0,
         0,
-        date = "",
-        comments = arrayListOf()
+        date = ""
     )
 
     constructor(id: Int, userId: Int, title: String, content: String, date: String) : this(
@@ -43,7 +40,6 @@ data class Post(
         image = arrayListOf(),
         0,
         0,
-        date = date,
-        comments = arrayListOf()
+        date = date
     )
 }
