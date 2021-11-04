@@ -1,85 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.post_detail.comment.CommentFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/f_comment_iv_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:padding="10dp"
-        android:layout_marginTop="2dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/back_button"
-        android:src="@drawable/ic_arrow_back_36"/>
+    <data>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/f_comment_rcv_comment_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/f_comment_iv_back"
-        android:layout_marginTop="20dp"
-        tools:listitem="@layout/item_comment"
-        android:clipToPadding="false"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/f_comment_cl_comment_container"
-        android:background="@color/light_gray_40"/>
+        <variable
+            name="viewModel"
+            type="com.example.blog.ui.post_detail.comment.CommentViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/white"
-        android:id="@+id/f_comment_cl_comment_container"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.post_detail.comment.CommentFragment">
 
-        <EditText
-            android:id="@+id/f_comment_et_comment"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            style="@style/Regular16Black"
+        <ImageView
+            android:id="@+id/f_comment_iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:contentDescription="@string/back_button"
             android:padding="10dp"
-            android:maxLines="1"
-            android:maxLength="120"
-            android:inputType="text"
-            android:layout_marginHorizontal="10dp"
-            android:hint="@string/enter_comment"
+            android:src="@drawable/ic_arrow_back_36"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/f_comment_tv_register"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@null"
-            android:importantForAutofill="no" />
-
-        <TextView
-            android:id="@+id/f_comment_tv_register"
-            style="@style/Regular16Black"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:background="@drawable/background_gray_rounder"
-            android:text="@string/registration"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/f_comment_et_comment"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/f_comment_rcv_comment_list"
+            commentList="@{viewModel.commentList}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/f_comment_cl_comment_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/f_comment_iv_back"
+            tools:listitem="@layout/item_comment" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/light_gray_40"
+            app:layout_constraintBottom_toTopOf="@id/f_comment_cl_comment_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/f_comment_cl_comment_container"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <EditText
+                android:id="@+id/f_comment_et_comment"
+                style="@style/Regular16Black"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@null"
+                android:hint="@string/enter_comment"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:maxLength="120"
+                android:maxLines="1"
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/f_comment_tv_register"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/f_comment_tv_register"
+                style="@style/Regular16Black"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/background_gray_rounder"
+                android:gravity="center"
+                android:text="@string/registration"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/f_comment_et_comment"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
