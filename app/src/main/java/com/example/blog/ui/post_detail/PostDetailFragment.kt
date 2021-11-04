@@ -1,13 +1,16 @@
 package com.example.blog.ui.post_detail
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.blog.R
 import com.example.blog.databinding.FragmentPostDetailBinding
 
 class PostDetailFragment : Fragment() {
@@ -50,9 +53,17 @@ class PostDetailFragment : Fragment() {
             binding.fPostDetailClPostMenuContainer.visibility = View.VISIBLE
             binding.fPostDetailClPostInfoContainer.visibility = View.INVISIBLE
         }
-        
+
         binding.fPostDetailIvEdit.setOnClickListener {
-            findNavController().navigate(PostDetailFragmentDirections.actionPostDetailToWritePost(args.postId))
+            findNavController().navigate(
+                PostDetailFragmentDirections.actionPostDetailToWritePost(
+                    args.postId
+                )
+            )
+        }
+
+        binding.fPostDetailIvDelete.setOnClickListener {
+            showDeletePostDialog()
         }
 
         binding.fPostDetailIvMoreHoriz.setOnClickListener {
@@ -63,5 +74,33 @@ class PostDetailFragment : Fragment() {
         viewModel.postInfo.observe(viewLifecycleOwner, {
             binding.fPostDetailTvLikeCount.isPressed = it.isPressedLike
         })
+
+        viewModel.deletePost.observe(viewLifecycleOwner, {
+            if(it){
+                Toast.makeText(requireActivity(), "게시글이 삭제되었습니다.", Toast.LENGTH_SHORT).show()
+                findNavController().navigateUp()
+            }
+        })
+    }
+
+    private fun showDeletePostDialog() {
+        val dialog: AlertDialog.Builder =
+            AlertDialog.Builder(
+                requireActivity(),
+                R.style.CustomDialogTheme
+            )
+
+        dialog.apply {
+            setMessage("게시글을 삭제하시겠습니까?")
+            setPositiveButton("삭제") { dialog, _ ->
+                viewModel.deletePost(args.postId)
+                dialog.dismiss()
+            }
+            setNegativeButton("취소") { dialog, _ ->
+                dialog.cancel()
+            }
+        }
+
+        dialog.show()
     }
 }
