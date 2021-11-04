@@ -66,6 +66,8 @@
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:maxLength="80"
+                    android:text="@{viewModel.postData.title}"
+                    android:textColorHint="@color/mid_gray"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -81,7 +83,9 @@
                     android:hint="@string/enter_content"
                     android:importantForAutofill="no"
                     android:inputType="textMultiLine"
+                    android:text="@{viewModel.postData.content}"
                     android:textAlignment="textStart"
+                    android:textColorHint="@color/mid_gray"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/f_write_post_et_title" />
