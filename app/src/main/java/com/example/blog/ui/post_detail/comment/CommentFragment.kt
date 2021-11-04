@@ -49,8 +49,8 @@ class CommentFragment : Fragment() {
         }
 
         binding.fCommentTvRegister.setOnClickListener {
-            if(binding.fCommentEtComment.text.toString().trim() != ""){
-                viewModel.getLastCommentId(args.postId)
+            if (binding.fCommentEtComment.text.toString().trim() != "") {
+                viewModel.getLastCommentId()
             }
         }
 
@@ -68,11 +68,15 @@ class CommentFragment : Fragment() {
         })
 
         viewModel.isCompleted.observe(viewLifecycleOwner, {
-            if(it){
+            if (it) {
                 binding.fCommentEtComment.setText("")
             }
         })
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.unbind()
+    }
 }
