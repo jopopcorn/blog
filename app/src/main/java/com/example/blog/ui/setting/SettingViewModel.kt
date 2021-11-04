@@ -4,10 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.blog.data.Blog
-import com.example.blog.data.Post
 import com.example.blog.data.User
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import timber.log.Timber
 
 class SettingViewModel : ViewModel() {
@@ -19,9 +17,13 @@ class SettingViewModel : ViewModel() {
     val userInfo: LiveData<User>
         get() = _userInfo
 
-    private val _isCompleted = MutableLiveData<Boolean>()
-    val isCompleted: LiveData<Boolean>
-        get() = _isCompleted
+    private val _saveBlogData = MutableLiveData<Boolean>()
+    val saveBlogData: LiveData<Boolean>
+        get() = _saveBlogData
+
+    private val _saveUserData = MutableLiveData<Boolean>()
+    val saveUserData: LiveData<Boolean>
+        get() = _saveUserData
 
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
@@ -59,7 +61,7 @@ class SettingViewModel : ViewModel() {
             .set(blog)
             .addOnSuccessListener {
                 Timber.d("블로그 정보 저장 완료")
-                _isCompleted.value = true
+                _saveBlogData.value = true
             }.addOnFailureListener {
                 Timber.d("블로그 정보 저장 실패 - $it")
             }
@@ -70,6 +72,7 @@ class SettingViewModel : ViewModel() {
             .set(user)
             .addOnSuccessListener {
                 Timber.d("유저 정보 저장 성공")
+                _saveUserData.value = true
             }.addOnFailureListener {
                 Timber.d("유저 정보 저장 실패 - $it")
             }

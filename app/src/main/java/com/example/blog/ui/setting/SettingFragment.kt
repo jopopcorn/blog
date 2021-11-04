@@ -61,8 +61,15 @@ class SettingFragment : Fragment() {
             }
         }
 
-        viewModel.isCompleted.observe(viewLifecycleOwner, {
-            if (it) {
+        viewModel.saveBlogData.observe(viewLifecycleOwner, {
+            if (it && viewModel.saveUserData.value == true) {
+                Toast.makeText(requireActivity(), "프로필 수정이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                findNavController().navigateUp()
+            }
+        })
+
+        viewModel.saveUserData.observe(viewLifecycleOwner, {
+            if (it && viewModel.saveBlogData.value == true) {
                 Toast.makeText(requireActivity(), "프로필 수정이 완료되었습니다.", Toast.LENGTH_SHORT).show()
                 findNavController().navigateUp()
             }
