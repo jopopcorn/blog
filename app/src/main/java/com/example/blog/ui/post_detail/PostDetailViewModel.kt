@@ -17,6 +17,10 @@ class PostDetailViewModel : ViewModel() {
     val blogInfo: LiveData<Blog>
         get() = _blogInfo
 
+    private val _deletedPost = MutableLiveData<Boolean>()
+    val deletePost: LiveData<Boolean>
+        get() = _deletedPost
+
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     fun loadPostData(postId: Int) {
@@ -74,5 +78,15 @@ class PostDetailViewModel : ViewModel() {
         }
     }
 
+    fun deletePost(postId: Int) {
+        db.collection("posts").document("$postId")
+            .delete()
+            .addOnSuccessListener {
+                _deletedPost.value = true
+                Timber.d("게시글 삭제 완료")
+            }.addOnFailureListener {
+                Timber.d("게시글 삭제 실패 - $it")
+            }
+    }
 
 }
