@@ -33,8 +33,9 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="12dp"
+            app:tint="@color/mid_gray_50"
             android:contentDescription="@string/like_count"
-            android:src="@drawable/ic_like_border_24"
+            android:src="@drawable/ic_unpressed_like_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/i_home_post_list_tv_title" />
 
