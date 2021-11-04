@@ -28,6 +28,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/black" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Bold18Black"
+            android:text="@{@string/comment(viewModel.commentList.size())}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/f_comment_iv_back"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/f_comment_rcv_comment_list"
             commentList="@{viewModel.commentList}"
