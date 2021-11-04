@@ -43,6 +43,10 @@
         tools:layout="@layout/fragment_post_detail">
 
         <action
+            android:id="@+id/action_post_detail_to_write_post"
+            app:destination="@id/navigation_write_post"/>
+
+        <action
             android:id="@+id/action_post_detail_to_comment"
             app:destination="@id/navigation_comment" />
         <argument

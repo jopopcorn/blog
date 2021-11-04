@@ -50,6 +50,10 @@ class PostDetailFragment : Fragment() {
             binding.fPostDetailClPostMenuContainer.visibility = View.VISIBLE
             binding.fPostDetailClPostInfoContainer.visibility = View.INVISIBLE
         }
+        
+        binding.fPostDetailIvEdit.setOnClickListener {
+            findNavController().navigate(PostDetailFragmentDirections.actionPostDetailToWritePost(args.postId))
+        }
 
         binding.fPostDetailIvMoreHoriz.setOnClickListener {
             binding.fPostDetailClPostMenuContainer.visibility = View.INVISIBLE
