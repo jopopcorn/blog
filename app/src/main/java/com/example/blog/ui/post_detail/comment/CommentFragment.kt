@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.blog.BlogApplication.Companion.USER_ID
-import com.example.blog.R
 import com.example.blog.data.Comment
 import com.example.blog.databinding.FragmentCommentBinding
 
@@ -50,7 +49,9 @@ class CommentFragment : Fragment() {
         }
 
         binding.fCommentTvRegister.setOnClickListener {
-            viewModel.getLastCommentId(args.postId)
+            if(binding.fCommentEtComment.text.trim() != ""){
+                viewModel.getLastCommentId(args.postId)
+            }
         }
 
         viewModel.commentId.observe(viewLifecycleOwner, { commentId ->
@@ -65,6 +66,13 @@ class CommentFragment : Fragment() {
                 )
             )
         })
+
+        viewModel.isCompleted.observe(viewLifecycleOwner, {
+            if(it){
+                binding.fCommentEtComment.setText("")
+            }
+        })
+
     }
 
 }
