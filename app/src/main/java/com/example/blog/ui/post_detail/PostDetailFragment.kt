@@ -41,5 +41,13 @@ class PostDetailFragment : Fragment() {
         binding.fPostDetailTvCommentCount.setOnClickListener {
             findNavController().navigate(PostDetailFragmentDirections.actionPostDetailToComment(args.postId))
         }
+
+        binding.fPostDetailTvLikeCount.setOnClickListener {
+            viewModel.updateNumberOfLike()
+        }
+
+        viewModel.postInfo.observe(viewLifecycleOwner, {
+            binding.fPostDetailTvLikeCount.isPressed = it.isPressedLike
+        })
     }
 }

@@ -10,11 +10,11 @@ import timber.log.Timber
 
 class PostDetailViewModel : ViewModel() {
     private val _postInfo = MutableLiveData<Post>()
-    val postInfo : LiveData<Post>
+    val postInfo: LiveData<Post>
         get() = _postInfo
 
     private val _blogInfo = MutableLiveData<Blog>()
-    val blogInfo : LiveData<Blog>
+    val blogInfo: LiveData<Blog>
         get() = _blogInfo
 
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -47,6 +47,30 @@ class PostDetailViewModel : ViewModel() {
             }
         }.addOnFailureListener {
             Timber.d("블로그 정보 불러오기 실패 - $it")
+        }
+    }
+
+    fun updateNumberOfLike() {
+        val post: Post? = _postInfo.value
+        Timber.d("게시글 좋아요의 현재 클릭 상태 ${post?.isPressedLike}")
+        post?.let {
+            it.isPressedLike = !it.isPressedLike
+
+            if (it.isPressedLike) {
+                it.numberOfLike += 1
+            } else {
+                it.numberOfLike -= 1
+            }
+
+            db.collection("posts").document("${it.id}")
+                .set(it)
+                .addOnSuccessListener {
+                    Timber.d("좋아요 숫자 갱신 완료")
+                    loadPostData(post.id)
+                }
+                .addOnFailureListener { exception ->
+                    Timber.d("좋아요 숫자 갱신 실패 - $exception")
+                }
         }
     }
 
